@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node copy-extensions.js && react-scripts build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
