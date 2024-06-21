@@ -1,6 +1,8 @@
 import './App.css';
 import extensionsData from './extensions.json';
 
+// main code
+
 function Card({ title, content }) {
   return (
     <div className="col-md-3 mb-4">
