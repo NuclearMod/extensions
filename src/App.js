@@ -1,22 +1,66 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import extensionsData from './extensions.json';
+import defaultExt from './default_ext.png';
+const editor = "https://nuclearmod.github.io/editor/editor.html";
 
-// main code
+function Card({ name, desc, img, src, project, credits, credits_url }) {
+  const [imageSrc, setImageSrc] = useState(defaultExt);
 
-function Card({ title, content }) {
+  useEffect(() => {
+    const imgToLoad = new Image();
+    imgToLoad.src = `${process.env.PUBLIC_URL}/images/${img}`;
+    imgToLoad.onload = () => setImageSrc(imgToLoad.src);
+    imgToLoad.onerror = () => setImageSrc(defaultExt);
+  }, [img]);
+
+  const copyToClipboard = () => {
+    const url = `${window.location.origin}${process.env.PUBLIC_URL}/extensions/${src}`;
+    navigator.clipboard.writeText(url).then(() => {
+    }).catch(err => {
+      console.error('Failed to copy URL: ', err);
+    });
+  };
+
+  const openExt = () => {
+    const url = `${editor}?extension=${window.location.origin}${process.env.PUBLIC_URL}/extensions/${src}`;
+    window.open(url, '_blank');
+  };
+
+  const openSampleProject = () => {
+    const url = `${editor}?project_url=${window.location.origin}${process.env.PUBLIC_URL}/samples/${project}.sb3`;
+    window.open(url, '_blank');
+  };
+
   return (
-    <div className="col-md-3 mb-4">
+    <div className="col-md-3 mb-4 fixed-size-card">
       <div className="card">
-        <h5 className="card-header">
-          {title}
-        </h5>
+        <div className="card-header btn-in-card fixed-size-header" style={{ backgroundImage: `url(${imageSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className="btn-wrapper">
+            <button className="btn btn-primary" onClick={copyToClipboard}>
+              Copy URL
+            </button>
+            <button className="btn btn-danger" onClick={openExt}>
+              Open Extension
+            </button>
+            {project && (
+              <button className="btn btn-success" onClick={openSampleProject}>
+                Sample Project
+              </button>
+            )}
+          </div>
+        </div>
         <div className="card-body">
           <h4 className="card-text">
-            {content}
+            <strong>{name}</strong>
           </h4>
           <p className="card-text">
-            {content}
+            {desc}
           </p>
+          {credits && credits_url ? (
+            <a href={credits_url}>by {credits}</a>
+          ) : credits ? (
+            <div>by {credits}</div>
+          ) : null}
         </div>
       </div>
     </div>
@@ -27,27 +71,34 @@ function CardRow({ cards }) {
   return (
     <div className="row justify-content-center">
       {cards.map((card, index) => (
-        <Card key={index} title={card.title} content={card.content} />
+        <Card key={index} name={card.name} desc={card.desc} img={card.img} src={card.src} project={card.project} credits={card.credits} credits_url={card.credits_url}/>
       ))}
     </div>
   );
 }
 
 function App() {
-  
+  const [extensionsData, setExtensionsData] = useState([]);
+
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/extensions.json')
+      .then((response) => response.json())
+      .then((data) => setExtensionsData(data))
+      .catch((error) => console.error('Error fetching the extensions data:', error));
+  }, []);
 
   // Générer des lignes de cartes
   const cardRows = [];
   for (let i = 0; i < extensionsData.length; i += 3) {
     cardRows.push(extensionsData.slice(i, i + 3));
-  };
+  }
 
   return (
     <div>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-          <br />
+            <br />
             <h1 className="text-center" style={{ fontWeight: "500" }}>
               NuclearMod Extension Gallery
             </h1>

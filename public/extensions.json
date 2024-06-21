@@ -1,43 +1,19 @@
 [
     {
-      "title": "Card title 1",
-      "content": "Card content 1"
+      "name": "Debugger Console",
+      "desc": "Card content 1",
+      "src": "Aness6040/debuggerconsole.js",
+      "img":"Aness6040/debuggerconsole.svg",
+      "credits": "Aness6040",
+      "credits_url": "https://github.com/Aness6040"
     },
     {
-      "title": "Card title 2",
-      "content": "Card content 2"
-    },
-    {
-      "title": "Card title 3",
-      "content": "Card content 3"
-    },
-    {
-      "title": "Card title 4",
-      "content": "Card content 4"
-    },
-    {
-      "title": "Card title 5",
-      "content": "Card content 5"
-    },
-    {
-      "title": "Card title 6",
-      "content": "Card content 6"
-    },
-    {
-      "title": "Card title 7",
-      "content": "Card content 7"
-    },
-    {
-      "title": "Card title 8",
-      "content": "Card content 8"
-    },
-    {
-      "title": "Card title 9",
-      "content": "Card content 9"
-    },
-    {
-        "title": "Card title 9",
-        "content": "Card content 9"
+      "name": "Debugger Console",
+      "desc": "Card content 1",
+      "src": "Aness6040/debuggerconsole.js",
+      "img":"Aness6040/debuggerconsole2.svg",
+      "project": "test",
+      "credits": "Aness6040"
     }
   ]
   
