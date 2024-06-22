@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import defaultExt from './default_ext.png';
+import nuclearmodLogo from './nuclearmod.png';
+
 const editor = "https://nuclearmod.github.io/editor/editor.html";
 
 function Card({ name, desc, img, src, project, credits, credits_url }) {
@@ -16,6 +18,7 @@ function Card({ name, desc, img, src, project, credits, credits_url }) {
   const copyToClipboard = () => {
     const url = `${window.location.origin}${process.env.PUBLIC_URL}/extensions/${src}`;
     navigator.clipboard.writeText(url).then(() => {
+      console.log('URL copied to clipboard');
     }).catch(err => {
       console.error('Failed to copy URL: ', err);
     });
@@ -71,7 +74,7 @@ function CardRow({ cards }) {
   return (
     <div className="row justify-content-center">
       {cards.map((card, index) => (
-        <Card key={index} name={card.name} desc={card.desc} img={card.img} src={card.src} project={card.project} credits={card.credits} credits_url={card.credits_url}/>
+        <Card key={index} {...card} />
       ))}
     </div>
   );
@@ -81,7 +84,7 @@ function App() {
   const [extensionsData, setExtensionsData] = useState([]);
 
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/extensions.json')
+    fetch(`${process.env.PUBLIC_URL}/extensions.json`)
       .then((response) => response.json())
       .then((data) => setExtensionsData(data))
       .catch((error) => console.error('Error fetching the extensions data:', error));
@@ -100,7 +103,7 @@ function App() {
           <div className="col-md-12">
             <br />
             <h1 className="text-center" style={{ fontWeight: "500" }}>
-              NuclearMod Extension Gallery
+              <img src={nuclearmodLogo} alt="logo" style={{ width: "70px", marginRight: "10px"}}/>NuclearMod Extension Gallery
             </h1>
           </div>
         </div>

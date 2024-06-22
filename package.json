@@ -1,5 +1,6 @@
 {
   "name": "nuclearmod-extensions",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +17,7 @@
   "scripts": {
     "start": "PORT=8000 react-scripts start",
     "start:win": "set PORT=8000 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && serve -s build",
     "deploy": "gh-pages -t -d build -m \"[skip ci] Build for $(git log --pretty=format:%H -n1)\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
