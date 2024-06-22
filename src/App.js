@@ -8,7 +8,7 @@ let root;
 
 if (window.location.hostname.endsWith('localhost')) {
   root = `${window.location.origin}${process.env.PUBLIC_URL}/`;
-} else {root = `${window.location.origin}${window.location.pathname}${process.env.PUBLIC_URL}`;}
+} else {root = `${window.location.origin}${window.location.pathname}`;}
 
 function Card({ name, desc, img, src, project, credits, credits_url }) {
   const [imageSrc, setImageSrc] = useState(defaultExt);
