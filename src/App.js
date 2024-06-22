@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 import './App.css';
 import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
@@ -40,7 +42,7 @@ function Card({ name, desc, img, src, project, credits, credits_url }) {
   };
 
   return (
-    <div className="col-md-3 mb-4 fixed-size-card">
+    <div className="col-10 col-sm-6 col-md-3 mb-4 fixed-size-card">
       <div className="card">
         <div className="card-header btn-in-card fixed-size-header" style={{ backgroundImage: `url(${imageSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="btn-wrapper">

@@ -28,7 +28,7 @@ body {
   }
   
   .fixed-size-card {
-    height: 100%;
+    height: 100%; /* Occupera toute la hauteur disponible dans la grille */
   }
   
   .fixed-size-header {
@@ -46,6 +46,28 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1; /* Ensure overlay is below the buttons */
+  }
+  
+  .card-header.btn-in-card:hover::after {
+    opacity: 1;
+  }
+  
+  .card-header.btn-in-card {
+    position: relative;
+    height: 160px; /* Hauteur fixe pour card-header */
+  }
+  
+  .card-header.btn-in-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay noir avec 50% d'opacité */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Overlay en dessous des boutons */
   }
   
   .card-header.btn-in-card:hover::after {
