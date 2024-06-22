@@ -4,6 +4,11 @@ import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
 
 const editor = "https://nuclearmod.github.io/editor/editor.html";
+let root; 
+
+if (window.location.hostname.endsWith('localhost')) {
+  root = `${window.location.origin}${process.env.PUBLIC_URL}/`;
+} else {root = `${window.location.origin}${window.location.pathname}${process.env.PUBLIC_URL}`;}
 
 function Card({ name, desc, img, src, project, credits, credits_url }) {
   const [imageSrc, setImageSrc] = useState(defaultExt);
@@ -16,7 +21,7 @@ function Card({ name, desc, img, src, project, credits, credits_url }) {
   }, [img]);
 
   const copyToClipboard = () => {
-    const url = `${window.location.origin}${window.location.pathname}${process.env.PUBLIC_URL}/extensions/${src}`;
+    const url = `${root}extensions/${src}`;
     navigator.clipboard.writeText(url).then(() => {
       console.log('URL copied to clipboard');
     }).catch(err => {
@@ -25,12 +30,12 @@ function Card({ name, desc, img, src, project, credits, credits_url }) {
   };
 
   const openExt = () => {
-    const url = `${editor}?extension=${window.location.origin}${window.location.pathname}${process.env.PUBLIC_URL}/extensions/${src}`;
+    const url = `${editor}?extension=${root}extensions/${src}`;
     window.open(url, '_blank');
   };
 
   const openSampleProject = () => {
-    const url = `${editor}?project_url=${window.location.origin}${window.location.pathname}${process.env.PUBLIC_URL}/samples/${project}.sb3`;
+    const url = `${editor}?project_url=${root}samples/${project}.sb3`;
     window.open(url, '_blank');
   };
 
