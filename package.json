@@ -1,6 +1,7 @@
 {
   "name": "nuclearmod-extensions",
   "homepage": "https://nuclearmod.github.io/extensions/",
+  "private": false,
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
