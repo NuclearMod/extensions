@@ -151,7 +151,7 @@ const Err404 = () => {
 
 function App() {
   return (
-    <Router basename="/extensions">
+    <Router basename="extensions">
       <Routes>
         <Route path="/" element={<ExtPage />} />
         <Route path=":docId" element={<Doc />} />
