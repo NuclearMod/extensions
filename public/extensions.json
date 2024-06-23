@@ -4,6 +4,7 @@
       "desc": "Card content 1",
       "src": "Aness6040/debuggerconsole.js",
       "img":"Aness6040/debuggerconsole.svg",
+      "info": "this is an info<br>sus",
       "credits": "Aness6040",
       "credits_url": "https://github.com/Aness6040"
     },
@@ -22,7 +23,8 @@
       "src": "Aness6040/debuggerconsole.js",
       "img":"Aness6040/debuggerconsole2.svg",
       "project": "test",
-      "credits": "Aness6040"
+      "credits": "Aness6040",
+      "info": "this is an info<br>sus<br>maaaaaaaaaaaaaaaaaa<img src=\"https://lh3.ggpht.com/te5_P34GdpIGmce4tTUIingtbQu3J-Ibbmyo5mt60cAOAJuTKH-KPGoc6YSLsLlGlT0\"></img>"
     }
   ]
   
