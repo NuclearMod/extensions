@@ -6,7 +6,6 @@ import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
 import Doc from "./pages/doc";
 import {
-  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
@@ -152,14 +151,11 @@ const Err404 = () => {
 
 function App() {
   return (
-    <Router>
       <Routes>
-        <Route path="/" element={<div><center>Please, move to <a href="/extensions">/extensions</a></center></div>} />
-        <Route path="/extensions" element={<ExtPage />} />
-        <Route path="/extensions/:docId" element={<Doc />} />
+        <Route path="/" element={<ExtPage />} />
+        <Route path="/:docId" element={<Doc />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
-    </Router>
   );
 }
 
