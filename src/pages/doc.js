@@ -46,7 +46,7 @@ const Doc = () => {
                 scratchblocks.renderMatching("code.language-scratch", {
                     languages: ['en'],
                     style: scratchStyle, // Use selected scratch style
-                    scale: 0.8,
+                    scale: scratchStyle === "scratch2" ? 1 : 0.8,
                 });
             }, 500); // Adjust delay if necessary
         }
