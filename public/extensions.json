@@ -13,7 +13,8 @@
       "src": "Aness6040/debuggerconsole.js",
       "img":"Aness6040/debuggerconsole2.svg",
       "project": "test",
-      "credits": "Aness6040"
+      "credits": "Aness6040",
+      "doc": "test"
     },
     {
       "name": "Debugger Console",
