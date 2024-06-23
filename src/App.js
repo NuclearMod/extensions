@@ -5,6 +5,7 @@ import './App.css';
 import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
 import Doc from "./pages/doc";
+import { ThemeProvider, useTheme } from './ThemeContext';
 import {
   HashRouter as Router,
   Routes,
@@ -68,8 +69,10 @@ function ExtPage() {
       window.open(url, '_blank');
     };
   
+    const { theme } = useTheme();
+    
     return (
-      <div className="col-8 col-sm-8 col-md-6 col-lg-4 col-xl-3 mb-4 fixed-size-card">
+      <div className="col-8 col-sm-8 col-md-6 col-lg-4 col-xl-3 mb-4 fixed-size-card" data-bs-theme={theme}>
         <div className="card">
           <div className="card-header btn-in-card fixed-size-header" style={{ backgroundImage: `url(${imageSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="btn-wrapper">
@@ -91,7 +94,7 @@ function ExtPage() {
               )}
             </div>
           </div>
-          <div className="card-body">
+          <div className="card-body" style={{ backgroundColor: theme === 'dark' ? '#131313' : '#FFF', color: theme === 'dark' ? 'white' : 'black'}}>
             <h4 className="card-text">
               <strong>{name}</strong>
             </h4>
@@ -150,7 +153,9 @@ const Err404 = () => {
 };
 
 function App() {
+
   return (
+    <ThemeProvider>
     <Router>
       <Routes>
         <Route path="/" element={<ExtPage />} />
@@ -158,6 +163,7 @@ function App() {
         <Route path="*" element={<Err404 />} />
       </Routes>
     </Router>
+    </ThemeProvider>
   );
 }
 
