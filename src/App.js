@@ -6,10 +6,10 @@ import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
 import Doc from "./pages/doc";
 import {
+  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import scratchblocks from 'scratchblocks';
 
 const editor = "https://nuclearmod.github.io/editor/editor.html";
 let root; 
@@ -64,7 +64,7 @@ function ExtPage() {
       window.open(url, '_blank');
     };
     const openDoc = () => {
-      const url = `/extensions/${doc}`;
+      const url = `/extensions/#/${doc}`;
       window.open(url, '_blank');
     };
   
@@ -151,11 +151,13 @@ const Err404 = () => {
 
 function App() {
   return (
+    <Router basename="/extensions">
       <Routes>
         <Route path="/" element={<ExtPage />} />
-        <Route path="/:docId" element={<Doc />} />
+        <Route path=":docId" element={<Doc />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
+    </Router>
   );
 }
 
