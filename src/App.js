@@ -6,7 +6,7 @@ import defaultExt from './default_ext.png';
 import nuclearmodLogo from './nuclearmod.png';
 import Doc from "./pages/doc";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
