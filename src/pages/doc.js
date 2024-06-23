@@ -55,7 +55,7 @@ const Doc = () => {
         <div>
             <div style={{ backgroundColor: theme === 'dark' ? '#333' : '#FFA900', color: theme === 'dark' ? '#FFF' : 'white', padding: '10px' }}>
                 <center>
-                    <a style={{fontSize: '1.1em', color: 'white', textDecoration: 'none'}} href="/">
+                    <a style={{fontSize: '1.1em', color: 'white', textDecoration: 'none'}} href="/extensions">
                         <strong>
                             <img src={icon} alt="logo" style={{ width: "2em", marginRight: "5px"}}/>
                             NuclearMod Extensions Gallery
