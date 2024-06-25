@@ -1,28 +1,44 @@
 [
-    {
-      "name": "Debugger Console",
-      "desc": "Card content 1",
-      "src": "Aness6040/debuggerconsole.js",
-      "img":"Aness6040/debuggerconsole.svg",
-      "credits": "Aness6040",
-      "credits_url": "https://github.com/Aness6040"
-    },
-    {
-      "name": "Debugger Console",
-      "desc": "Card content 1",
-      "src": "Aness6040/debuggerconsole.js",
-      "img":"Aness6040/debuggerconsole2.svg",
-      "project": "test",
-      "credits": "Aness6040",
-      "doc": "test"
-    },
-    {
-      "name": "Debugger Console",
-      "desc": "Card content 1",
-      "src": "Aness6040/debuggerconsole.js",
-      "img":"Aness6040/debuggerconsole2.svg",
-      "project": "test",
-      "credits": "Aness6040"
-    }
-  ]
-  
+  {
+    "name": "Debugger Console",
+    "desc": "An interactive console tool for Scratch projects, allowing real-time terminal interactions.",
+    "src": "Aness6040/debuggerconsole.js",
+    "img": "Aness6040/debuggerconsole.svg",
+    "info": "This extensions is a continued<br>version of <a href=\"https://github.com/NOname-awa\">NOname-awa</a>'s <br>Debugger Extension. <br><a href=\"https://github.com/NOname-awa/Scr_ext/blob/main/extensions（扩展）/Stable%20Release（稳定）/debugger（调试器）.js\">Here's original extension</a>",
+    "credits": "<a href=\"https://github.com/Aness6040\">Aness6040<a><br><br>Credits to <a href=\"https://github.com/NOname-awa\">NOname-awa<a> for original extension."
+  },
+  {
+    "name": "E2EE",
+    "desc": "This is a Scratch 3 extension that enables E2EE (End-to-End Encryption). This E2EE extension utilizes the same underlying cryptography src that powers CloudLink Omega.",
+    "src": "MikeDev101/e2ee.js",
+    "img": "MikeDev101/e2ee.svg",
+    "credits": "MikeDev101",
+    "credits_url": "https://github.com/MikeDev101"
+},
+{
+    "name": "WebRTC",
+    "desc": "A slimmed-down version of the CL5 protocol extension, designed to offer a basic implementation of the WebRTC standard for Scratch 3.",
+    "src": "MikeDev101/webrtc.js",
+    "img": "MikeDev101/webrtc.png",
+    "credits": "MikeDev101",
+    "credits_url": "https://github.com/MikeDev101"
+},
+{
+    "name": "FNF Sprites parser",
+    "desc": "Can Parse FNF Spritesheets (only XML) and parse FNF Icon Grid.",
+    "src": "Aness6040/fnf_sprites_parser.js",
+    "img": "Aness6040/fnf_sprites_parser.png",
+    "credits": "Aness6040",
+    "credits_url": "https://github.com/Aness6040",
+    "doc": "Aness6040/FNF-Sprites-Parser"
+},
+{
+  "name": "Markdown to HTML V2",
+  "desc": "Converts Markdown to HTML code.<br>This is V2 of <a href=\"https://electramod-extensions-gallery.vercel.app\">ElectraMod</a>'s MD2HTML (V2 is better)",
+  "src": "Aness6040/md2html.js",
+  "img": "Aness6040/md2html.svg",
+  "info": "The difference between V1 and V2 lies in the choice of parser used to interpret Markdown. In V1, the extension used a built-in parser that was poorly coded, which could lead to performance issues or errors in Markdown interpretation. However, in V2, the extension was recoded to use <strong>Marked</strong> instead of the built-in parser. Marked, a JavaScript library widely recognized for its reliability and accuracy in Markdown parsing.",
+  "credits": "Aness6040",
+  "credits_url": "https://github.com/Aness6040"
+}
+]
