@@ -98,7 +98,7 @@ function ExtPage() {
             {info && (
               <OverlayTrigger trigger={['hover', 'focus']} placement="right" overlay={popover}>
                 <Button variant="secondary" className="btn-sm btn-wrapper" style={{top: '1.5em', left: '1.5em', borderRadius: '15px', width: '25px', height: '25px', fontFamily: 'Times New Roman'}}>
-                  i
+                  <strong><em>i</em></strong>
                 </Button>
               </OverlayTrigger>
             )}
@@ -126,10 +126,10 @@ function ExtPage() {
               <strong>{name}</strong>
             </h4>
             <p className="card-text">
-              {desc}
+            <div dangerouslySetInnerHTML={{ __html: `${desc}` }} />
             </p>
             {credits && credits_url ? (
-              <a href={credits_url}>by {credits}</a>
+              <div>by <a href={credits_url}>{credits}</a></div>
             ) : credits ? (
               <div dangerouslySetInnerHTML={{ __html: `by ${credits}` }} />
             ) : null}
@@ -203,6 +203,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ExtPage />} />
         <Route path=":docId" element={<Doc />} />
+        <Route path=":folderDoc/:docId" element={<Doc />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
     </Router>

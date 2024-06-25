@@ -8,6 +8,7 @@ import { useTheme } from '../ThemeContext';
 
 const Doc = () => {
     const { docId } = useParams();
+    const { folderDoc } = useParams();
     const [markdownContent, setMarkdownContent] = useState('');
     const [scratchStyle, setScratchStyle] = useState('scratch3'); // State to manage scratch block style
     const markdownRef = useRef(null);
@@ -24,6 +25,8 @@ const Doc = () => {
                     navigate('/');
                     return;
                 }
+                
+                console.log('Does it have folder? (example: "website.com/extensions/#/User/doc": ' + folderDoc !== undefined);
 
                 const markdownResponse = await fetch(`${process.env.PUBLIC_URL}/docs/${docId}.md`);
                 if (!markdownResponse.ok) {
