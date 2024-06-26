@@ -196,17 +196,16 @@ const Err404 = () => {
 };
 
 function App() {
-
   return (
     <ThemeProvider>
-    <Router>
-      <Routes>
-        <Route path="/" element={<ExtPage />} />
-        <Route path=":docId" element={<Doc />} />
-        <Route path=":folderDoc/:docId" element={<Doc />} />
-        <Route path="*" element={<Err404 />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<ExtPage />} />
+          <Route path=":folderDoc/:docId" element={<Doc />} />
+          <Route path=":docId" element={<Doc />} />
+          <Route path="*" element={<Err404 />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

@@ -7,8 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useTheme } from '../ThemeContext';
 
 const Doc = () => {
-    const { docId } = useParams();
-    const { folderDoc } = useParams();
+    const { docId, folderDoc } = useParams();
     const [markdownContent, setMarkdownContent] = useState('');
     const [scratchStyle, setScratchStyle] = useState('scratch3'); // State to manage scratch block style
     const markdownRef = useRef(null);
@@ -21,14 +20,21 @@ const Doc = () => {
                 const response = await fetch(`${process.env.PUBLIC_URL}/docs.json`); // For security reasons
                 const docs = await response.json();
 
-                if (!docs.includes(docId)) {
+                if (!docs.includes(docId) && folderDoc === undefined) {
                     navigate('/');
                     return;
                 }
-                
-                console.log('Does it have folder? (example: "website.com/extensions/#/User/doc": ' + folderDoc !== undefined);
 
-                const markdownResponse = await fetch(`${process.env.PUBLIC_URL}/docs/${docId}.md`);
+                console.log('Does it have folder? (example: "website.com/extensions/#/User/doc": ' + (folderDoc !== undefined));
+
+                let markdownResponse;
+
+                if (folderDoc !== undefined) {
+                    markdownResponse = await fetch(`${process.env.PUBLIC_URL}/docs/${folderDoc}/${docId}.md`);
+                } else {
+                    markdownResponse = await fetch(`${process.env.PUBLIC_URL}/docs/${docId}.md`);
+                }
+
                 if (!markdownResponse.ok) {
                     throw new Error('Failed to fetch markdown');
                 }
@@ -41,7 +47,7 @@ const Doc = () => {
         };
 
         checkDocIdAndFetchMarkdown();
-    }, [docId, navigate]);
+    }, [docId, folderDoc, navigate]);
 
     useEffect(() => {
         if (markdownContent && markdownRef.current) {
